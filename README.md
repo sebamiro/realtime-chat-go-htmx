@@ -1,1 +1,1 @@
-# realtiem-chat-go-htmx
+# realtime-chat-go-htmx

@@ -1,0 +1,15 @@
+package main
+
+templ msg(msg struct{byteArr; bool}) {
+	<div id="message" hx-swap-oob="afterbegin" >
+		if msg.bool {
+			<div class="bg-slate-50 text-zinc-950 m-1 min-h-fit max-w-xl h-max break-words rounded-sm self-end">
+				<p class="m-2" >{ string(msg.byteArr[:]) }</p>
+			</div>
+		} else {
+			<div class="bg-slate-50 text-zinc-950 m-1 min-h-fit max-w-xl h-max break-words rounded-sm">
+				<p class="m-2" >{ string(msg.byteArr[:]) }</p>
+			</div>
+		}
+	</div>
+}

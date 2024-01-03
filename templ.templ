@@ -1,0 +1,33 @@
+package main
+
+templ index() {
+	<!DOCTYPE html>
+	<html lang="en">
+
+	<head>
+		<meta charset="utf-8"/>
+		<title>Chat</title>
+		<script src="https://unpkg.com/htmx.org@1.9.10" integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC" crossorigin="anonymous"></script>
+		<script src="https://unpkg.com/htmx.org/dist/ext/ws.js"></script>
+		<script src="https://cdn.tailwindcss.com"></script>
+	</head>
+
+	<body class="bg-zinc-950 text-slate-50 font-mono h-screen flex flex-col justify-between">
+		<header class="w-full h-16 relative">
+			<h1 class="absolute bottom-0 ml-3 text-4xl font-semibold">chat</h1>
+		</header>
+		<section id="message" class="h-full w-full flex flex-col-reverse overflow-scroll">
+		</section>
+		<section class="w-full h-16 flex p-3" hx-ext="ws" ws-connect="/ws">
+			<form ws-send class="self-center w-full h-fit">
+				<input
+					name="msg"
+					type="text" class="self-center w-full h-fit bg-inherit focus:outline-none focus:bg-neutral-900 border-b-2 border-gray-500"
+					hx-trigger="click[enterKey]"
+				/>
+			</form>
+		</section>
+	</body>
+	</html>
+}
+
